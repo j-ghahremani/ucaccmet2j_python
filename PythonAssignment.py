@@ -34,3 +34,18 @@ print(total_precip)
 
 with open('monthly_precip.json', 'w') as monthly_precip:
     json.dump(total_precip, monthly_precip, indent=4)
+
+#calculate total yearly precipitation
+yearly_precip = 0
+for month in total_precip:
+    yearly_precip += month
+
+print(yearly_precip)
+
+#calculate relative precipitation
+rel_precip = [0]*12
+for month in range(12):
+    print(month)
+    rel_precip[month] += total_precip[month] / yearly_precip * 100
+
+print(rel_precip)
